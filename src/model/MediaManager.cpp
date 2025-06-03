@@ -30,6 +30,10 @@ namespace Model {
         mediaPlayer.play();
     }
 
+    void MediaManager::pause() {
+        mediaPlayer.pause();
+    }
+
     void MediaManager::stop() {
         if (!mediaPlayer.isValid()) {
             std::cout << "Cannot stop, no file loaded\n";

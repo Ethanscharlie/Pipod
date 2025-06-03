@@ -19,6 +19,7 @@ public:
     MediaManager();
     void loadFile(const std::filesystem::path &file);
     void play();
+    void pause();
     void stop();
     bool isPlaying();
 };

@@ -29,6 +29,10 @@ TEST(MediaManagerTest, PlayAudioFile) {
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     EXPECT_TRUE(mediaManager.isPlaying());
+    mediaManager.pause();
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+    EXPECT_FALSE(mediaManager.isPlaying());
     mediaManager.stop();
 }
 
