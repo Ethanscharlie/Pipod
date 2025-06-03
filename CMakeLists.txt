@@ -17,7 +17,9 @@ add_executable(Pipod src/main.cpp
         src/model/MediaManager.cpp
         src/model/MediaManager.hpp
         tests/model/MediaManager.cpp
-        )
+        src/view/DeviceIo.cpp
+        src/view/DeviceIo.hpp
+)
 
 target_link_libraries(Pipod PRIVATE
         GTest::gtest_main
