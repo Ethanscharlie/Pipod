@@ -16,5 +16,6 @@ int main(int argc, char **argv) {
 
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
+    deviceIO->refreshDisplay();
   }
 }
