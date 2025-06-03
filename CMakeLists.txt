@@ -69,15 +69,15 @@ target_link_libraries(Pipod PRIVATE
         SDL2::SDL2
 )
 
-target_compile_definitions(piphone PRIVATE 
+target_compile_definitions(Pipod PRIVATE 
   -DSIM 
 )
 else()
-  target_link_libraries(piphone PRIVATE 
+  target_link_libraries(Pipod PRIVATE 
     lgpio
   )
 
-  target_compile_definitions(piphone PRIVATE 
+  target_compile_definitions(Pipod PRIVATE 
     -DUSE_DEV_LIB 
   )
 
