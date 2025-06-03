@@ -41,6 +41,7 @@ bool PiIO::isButtonDown() { return GET_KEY1 == 0; }
 void PiIO::refreshDisplay() { LCD_1in44_Display(BlackImage); }
 
 void PiIO::setDisplayColor(Color color) {
-  Paint_Clear(rgbToRgb565(color.r, color.g, color.b));
+  // I have no fucking clue why it's this way but whatever
+  Paint_Clear(rgbToRgb565(color.b, color.r, color.g));
 }
 } // namespace View
