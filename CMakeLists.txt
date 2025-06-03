@@ -3,6 +3,27 @@ project(Pipod)
 
 set(CMAKE_CXX_STANDARD 20)
 
+set(SIM ON)
+
+find_package(GTest REQUIRED)
+enable_testing()
+
+set(VLCLIB_LOC "/usr/lib/libvlc.so")
+if (NOT ${SIM})
+        set(VLCLIB_LOC "/usr/lib/arm-linux-gnueabihf/libvlc.so")
+endif ()
+
 add_executable(Pipod src/main.cpp
         src/model/MediaManager.cpp
-        src/model/MediaManager.hpp)
+        src/model/MediaManager.hpp
+        tests/model/MediaManager.cpp
+        )
+
+target_link_libraries(Pipod PRIVATE
+        GTest::gtest_main
+        ${VLCLIB_LOC}
+)
+
+target_include_directories(Pipod PRIVATE
+        include/vlcpp
+)
