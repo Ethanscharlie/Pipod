@@ -19,6 +19,7 @@ add_executable(Pipod src/main.cpp
         tests/model/MediaManager.cpp
         src/view/DeviceIo.cpp
         src/view/DeviceIo.hpp
+        src/view/Color.hpp
 )
 
 target_link_libraries(Pipod PRIVATE
