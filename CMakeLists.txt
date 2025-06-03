@@ -20,6 +20,8 @@ add_executable(Pipod src/main.cpp
         src/view/DeviceIo.cpp
         src/view/DeviceIo.hpp
         src/view/Color.hpp
+        src/view/SimIo.cpp
+        src/view/SimIo.hpp
 )
 
 target_link_libraries(Pipod PRIVATE
