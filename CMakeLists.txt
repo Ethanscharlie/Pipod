@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.2)
 project(Pipod)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -67,6 +67,10 @@ target_include_directories(Pipod PRIVATE
 if (${SIM})
 target_link_libraries(Pipod PRIVATE
         SDL2::SDL2
+)
+
+target_compile_definitions(piphone PRIVATE 
+  -DSIM 
 )
 else()
   target_link_libraries(piphone PRIVATE 

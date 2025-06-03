@@ -4,14 +4,25 @@
 
 #include "model/MediaManager.hpp"
 #include "view/DeviceIo.hpp"
+#include "view/PiIO.hpp"
+
+#ifdef SIM
 #include "view/SimIo.hpp"
+#else
+#include "view/PiIo.hpp"
+#endif // SIM
 
 int main(int argc, char **argv) {
   // testing::InitGoogleTest(&argc, argv);
   // return RUN_ALL_TESTS();
 
-  View::SimIO simIO = View::SimIO();
-  View::DeviceIO *deviceIO = &simIO;
+#ifdef SIM
+  View::SimIO io = View::SimIO();
+#else
+  View::PiIO io = View::PiIO();
+#endif // SIM
+
+  View::DeviceIO *deviceIO = &io;
   deviceIO->isButtonDown();
 
   while (true) {
