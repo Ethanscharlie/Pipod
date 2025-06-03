@@ -16,6 +16,13 @@ int main(int argc, char **argv) {
 
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
+
+    if (deviceIO->isButtonDown()) {
+      deviceIO->setDisplayColor({255, 0, 0});
+    } else {
+      deviceIO->setDisplayColor({0, 255, 0});
+    }
+
     deviceIO->refreshDisplay();
   }
 }

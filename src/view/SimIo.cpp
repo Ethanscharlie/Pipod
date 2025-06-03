@@ -3,7 +3,9 @@
 //
 
 #include "SimIo.hpp"
+#include <SDL2/SDL_events.h>
 #include <SDL2/SDL_render.h>
+#include <SDL2/SDL_scancode.h>
 #include <SDL2/SDL_video.h>
 
 namespace View {
@@ -16,7 +18,11 @@ SimIO::SimIO() {
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 }
 
-bool SimIO::isButtonDown() { return false; }
+bool SimIO::isButtonDown() {
+  SDL_PumpEvents();
+  const Uint8 *keyboardStateArray = SDL_GetKeyboardState(nullptr);
+  return keyboardStateArray[SDL_SCANCODE_SPACE];
+}
 
 void SimIO::refreshDisplay() { SDL_RenderPresent(renderer); }
 

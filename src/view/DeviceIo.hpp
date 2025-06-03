@@ -12,15 +12,15 @@ namespace View {
 class DeviceIO {
 
 public:
-    const int DISPLAY_WIDTH = 128;
-    const int DISPLAY_HEIGHT = 128;
+  const int DISPLAY_WIDTH = 128;
+  const int DISPLAY_HEIGHT = 128;
 
-    DeviceIO() {}
-    virtual bool isButtonDown() = 0;
-    virtual void refreshDisplay() = 0;
-    virtual void setDisplayColor(Color color) = 0;
+  DeviceIO() {}
+  virtual bool isButtonDown() = 0;
+  virtual void refreshDisplay() = 0;
+  virtual void setDisplayColor(Color color) = 0;
 };
 
-} // View
+} // namespace View
 
-#endif //DEVICEIO_HPP
+#endif // DEVICEIO_HPP
