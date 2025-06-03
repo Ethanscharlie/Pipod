@@ -6,9 +6,10 @@
 
 #include <gtest/gtest.h>
 
-TEST(MediaManagerTest, PlayAudioFile) {
-    Model::MediaManager mediaManager;
-    mediaManager.loadFile("../tests/res/audiotest.mp3");
-    mediaManager.play();
-
-}
+// TEST(MediaManagerTest, PlayAudioFile) {
+//     Model::MediaManager mediaManager;
+//     mediaManager.loadFile("../tests/res/audiotest.mp3");
+//     mediaManager.play();
+//
+//     EXPECT_FALSE(mediaManager.isPlaying());
+// }

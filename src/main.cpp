@@ -3,13 +3,23 @@
 
 #include "model/MediaManager.hpp"
 
-int runTests(int argc, char **argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+TEST(MediaManagerTest, PlayAudioFile) {
+    std::filesystem::path file = "../tests/res/audiotest.mp3";
+    if (!std::filesystem::exists(file)) {
+        FAIL() << "File does not exist";
+    }
+
+    Model::MediaManager mediaManager;
+    mediaManager.loadFile(file);
+    mediaManager.play();
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+    EXPECT_TRUE(mediaManager.isPlaying());
+    mediaManager.stop();
 }
 
 int main(int argc, char **argv) {
-    runTests(argc, argv);
-
-    Model::MediaManager mediaManager;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

@@ -27,3 +27,5 @@ target_link_libraries(Pipod PRIVATE
 target_include_directories(Pipod PRIVATE
         include/vlcpp
 )
+
+gtest_discover_tests(Pipod)

@@ -15,11 +15,12 @@ class MediaManager {
     VLC::MediaPlayer mediaPlayer;
     VLC::Media currentMedia;
 
-
 public:
     MediaManager();
     void loadFile(const std::filesystem::path &file);
     void play();
+    void stop();
+    bool isPlaying();
 };
 
 } // Model
