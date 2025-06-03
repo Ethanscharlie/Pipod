@@ -3,6 +3,6 @@ project(Pipod)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Pipod main.cpp
-        model/MediaManager.cpp
-        model/MediaManager.hpp)
+add_executable(Pipod src/main.cpp
+        src/model/MediaManager.cpp
+        src/model/MediaManager.hpp)
