@@ -3,6 +3,16 @@
 
 #include "model/MediaManager.hpp"
 
+TEST(MediaManagerTest, testPlayWithoutLoadedFile) {
+    Model::MediaManager mediaManager;
+    mediaManager.play();
+}
+
+TEST(MediaManagerTest, testStopWithoutLoadedFile) {
+    Model::MediaManager mediaManager;
+    mediaManager.stop();
+}
+
 TEST(MediaManagerTest, PlayAudioFile) {
     std::filesystem::path file = "../tests/res/audiotest.mp3";
     if (!std::filesystem::exists(file)) {

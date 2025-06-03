@@ -4,6 +4,8 @@
 
 #include "MediaManager.hpp"
 
+#include <iostream>
+
 namespace Model {
     MediaManager::MediaManager() {
         vlcInstance = {0, nullptr};
@@ -20,10 +22,20 @@ namespace Model {
     }
 
     void MediaManager::play() {
+        if (!mediaPlayer.isValid()) {
+            std::cout << "Cannot play, no file loaded\n";
+            return;
+        }
+
         mediaPlayer.play();
     }
 
     void MediaManager::stop() {
+        if (!mediaPlayer.isValid()) {
+            std::cout << "Cannot stop, no file loaded\n";
+            return;
+        }
+
         mediaPlayer.stop();
     }
 
