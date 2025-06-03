@@ -22,6 +22,26 @@ set(testingFiles
 )
 endif ()
 
+
+# Hardware not libs
+set(hardwareFiles)
+if (NOT ${SIM})
+  set(hardwareFiles
+    include/1n44/Config/DEV_Config.cpp
+    include/1n44/Fonts/font12.cpp
+    include/1n44/Fonts/font16.cpp
+    include/1n44/Fonts/font20.cpp
+    include/1n44/Fonts/font24.cpp
+    include/1n44/Fonts/font48.cpp
+    include/1n44/Fonts/font50.cpp
+    include/1n44/Fonts/font8.cpp
+    include/1n44/GUI/GUI_BMP.cpp
+    include/1n44/GUI/GUI_Paint.cpp
+    include/1n44/GUI/KEY_APP.cpp
+    include/1n44/LCD/LCD_1in44.cpp
+  )
+endif()
+
 add_executable(Pipod src/main.cpp
         src/model/MediaManager.cpp
         src/model/MediaManager.hpp
@@ -31,19 +51,42 @@ add_executable(Pipod src/main.cpp
         src/view/SimIo.cpp
         src/view/SimIo.hpp
         ${testingFiles}
+        ${hardwareFiles}
 )
 
 target_link_libraries(Pipod PRIVATE
         GTest::gtest_main
         ${VLCLIB_LOC}
-        SDL2::SDL2
 )
 
 target_include_directories(Pipod PRIVATE
         include/vlcpp
 )
 
+# hardware specific libs and includes
+if (${SIM})
+target_link_libraries(Pipod PRIVATE
+        SDL2::SDL2
+)
+else()
+  target_link_libraries(piphone PRIVATE 
+    lgpio
+  )
+
+  target_compile_definitions(piphone PRIVATE 
+    -DUSE_DEV_LIB 
+  )
+
+  target_include_directories(Pipod PRIVATE
+    include/1n44/Config
+    include/1n44/Fonts
+    include/1n44/GUI
+    include/1n44/LCD
+  )
+endif()
+
 
 if (${TESTING})
   gtest_discover_tests(Pipod)
 endif ()
+
