@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.18)
 project(Pipod)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SIM ON)
 set(TESTING OFF)
@@ -23,9 +25,16 @@ endif ()
 
 
 # Hardware not libs
-set(hardwareFiles)
-if (NOT ${SIM})
-  set(hardwareFiles
+set(codeFiles)
+if (${SIM})
+  set(codeFiles
+    src/view/SimIo.cpp
+    src/view/SimIo.hpp
+  )
+else()
+  set(codeFiles
+    src/view/PiIO.cpp
+    src/view/PiIO.hpp
     include/1n44/Config/DEV_Config.cpp
     include/1n44/Fonts/font12.cpp
     include/1n44/Fonts/font16.cpp
@@ -47,10 +56,8 @@ add_executable(Pipod src/main.cpp
         src/view/DeviceIo.cpp
         src/view/DeviceIo.hpp
         src/view/Color.hpp
-        src/view/SimIo.cpp
-        src/view/SimIo.hpp
         ${testingFiles}
-        ${hardwareFiles}
+        ${codeFiles}
 )
 
 target_link_libraries(Pipod PRIVATE

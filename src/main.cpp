@@ -4,7 +4,6 @@
 
 #include "model/MediaManager.hpp"
 #include "view/DeviceIo.hpp"
-#include "view/PiIO.hpp"
 
 #ifdef SIM
 #include "view/SimIo.hpp"
