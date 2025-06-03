@@ -9,7 +9,7 @@
 #ifdef SIM
 #include "view/SimIo.hpp"
 #else
-#include "view/PiIo.hpp"
+#include "view/PiIO.hpp"
 #endif // SIM
 
 int main(int argc, char **argv) {
