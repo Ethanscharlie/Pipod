@@ -7,7 +7,6 @@ set(SIM ON)
 set(TESTING OFF)
 
 find_package(GTest REQUIRED)
-find_package(SDL2 REQUIRED)
 enable_testing()
 
 set(VLCLIB_LOC "/usr/lib/libvlc.so")
@@ -65,6 +64,7 @@ target_include_directories(Pipod PRIVATE
 
 # hardware specific libs and includes
 if (${SIM})
+find_package(SDL2 REQUIRED)
 target_link_libraries(Pipod PRIVATE
         SDL2::SDL2
 )
