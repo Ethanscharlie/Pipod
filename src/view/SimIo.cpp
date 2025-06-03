@@ -5,4 +5,12 @@
 #include "SimIo.hpp"
 
 namespace View {
+    SimIO::SimIO() {
+    }
+
+    bool SimIO::isButtonDown() {
+    }
+
+    void SimIO::setDisplayColor(Color color) {
+    }
 } // View

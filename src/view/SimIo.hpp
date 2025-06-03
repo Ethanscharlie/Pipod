@@ -9,7 +9,10 @@
 namespace View {
 
 class SimIO : public DeviceIO {
-
+public:
+    SimIO();
+    bool isButtonDown() override;
+    void setDisplayColor(Color color) override;
 };
 
 } // View
