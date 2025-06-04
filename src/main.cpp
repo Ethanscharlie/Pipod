@@ -45,6 +45,16 @@ void drawInputTest(View::DeviceIO *deviceIO) {
   deviceIO->drawRect({100, 110}, size, color);
 }
 
+void playAnAudioFileForTesting(Model::MediaManager& mediaManager) {
+  std::filesystem::path file = "../tests/res/audiotest.mp3";
+  if (!std::filesystem::exists(file)) {
+    throw std::logic_error("File does not exist");
+  }
+
+  mediaManager.loadFile(file);
+  mediaManager.play();
+}
+
 int main(int argc, char **argv) {
   // testing::InitGoogleTest(&argc, argv);
   // return RUN_ALL_TESTS();
@@ -56,24 +66,13 @@ int main(int argc, char **argv) {
 #endif // SIM
 
   View::DeviceIO *deviceIO = &io;
-
-
-  std::filesystem::path file = "../tests/res/audiotest.mp3";
-  if (!std::filesystem::exists(file)) {
-    throw std::logic_error("File does not exist");
-  }
-
   Model::MediaManager mediaManager;
-  mediaManager.loadFile(file);
-  mediaManager.play();
+  playAnAudioFileForTesting(mediaManager);
 
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
-
     deviceIO->setDisplayColor({255, 255, 255});
-
     drawInputTest(deviceIO);
-
     deviceIO->refreshDisplay();
   }
 }
