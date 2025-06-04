@@ -29,11 +29,7 @@ int main(int argc, char **argv) {
 
     deviceIO->setDisplayColor({255, 255, 255});
 
-    for (int x = 10; x < 20; x++) {
-      for (int y = 10; y < 20; y++) {
-        deviceIO->setPixel({x, y}, {0, 100, 255});
-      }
-    }
+    deviceIO->drawRect({10, 10}, {20, 20}, {0, 100, 255});
 
     deviceIO->refreshDisplay();
   }

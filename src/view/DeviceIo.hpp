@@ -18,6 +18,8 @@ public:
   const int DISPLAY_HEIGHT = 128;
 
   DeviceIO() {}
+  void drawRect(std::pair<int, int> position, std::pair<int, int> size, Color color);
+
   virtual bool isButtonDown() = 0;
   virtual void refreshDisplay() = 0;
   virtual void setDisplayColor(Color color) = 0;
