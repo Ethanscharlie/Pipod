@@ -55,10 +55,8 @@ void PiIO::setPixel(std::pair<int, int> position, Color color) {
     return;
   }
 
-  if (value) {
-    Paint_DrawPoint(x, y, rgbToRgb565(color.b, color.r, color.g), DOT_PIXEL_DFT,
+  Paint_DrawPoint(x, y, rgbToRgb565(color.b, color.r, color.g), DOT_PIXEL_DFT,
                     DOT_STYLE_DFT);
-  }
 }
 
 bool PiIO::isButton1Down() {
