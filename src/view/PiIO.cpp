@@ -55,7 +55,7 @@ void PiIO::setPixel(std::pair<int, int> position, Color color) {
     return;
   }
 
-  Paint_DrawPoint(x, y, rgbToRgb565(color.b, color.r, color.g), DOT_PIXEL_DFT,
+  Paint_DrawPoint(x, y, rgbToRgb565(color.r, color.g, color.b), DOT_PIXEL_DFT,
                     DOT_STYLE_DFT);
 }
 
