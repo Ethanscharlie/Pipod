@@ -62,4 +62,5 @@ void PiIO::setPixel(std::pair<int, int> position, Color color) {
                     DOT_STYLE_DFT);
   }
 }
+
 } // namespace View

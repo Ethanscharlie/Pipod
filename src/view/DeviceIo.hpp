@@ -20,10 +20,17 @@ public:
   DeviceIO() {}
   void drawRect(std::pair<int, int> position, std::pair<int, int> size, Color color);
 
-  virtual bool isButtonDown() = 0;
   virtual void refreshDisplay() = 0;
   virtual void setDisplayColor(Color color) = 0;
   virtual void setPixel(std::pair<int, int> position, Color color) = 0;
+
+  virtual bool isButton1Down() = 0;
+  virtual bool isButton2Down() = 0;
+  virtual bool isButton3Down() = 0;
+  virtual bool isJoystickUpDown() = 0;
+  virtual bool isJoystickDownDown() = 0;
+  virtual bool isJoystickRightDown() = 0;
+  virtual bool isJoystickLeftDown() = 0;
 };
 
 } // namespace View
