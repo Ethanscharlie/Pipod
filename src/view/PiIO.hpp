@@ -20,10 +20,18 @@ class PiIO : public DeviceIO {
 
 public:
   PiIO();
-  bool isButtonDown() override;
+
   void refreshDisplay() override;
   void setDisplayColor(Color color) override;
   void setPixel(std::pair<int, int> position, Color color) override;
+
+  bool isButton1Down() override;
+  bool isButton2Down() override;
+  bool isButton3Down() override;
+  bool isJoystickUpDown() override;
+  bool isJoystickDownDown() override;
+  bool isJoystickRightDown() override;
+  bool isJoystickLeftDown() override;
 };
 
 } // namespace View

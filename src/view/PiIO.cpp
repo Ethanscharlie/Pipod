@@ -36,8 +36,6 @@ PiIO::PiIO() {
   Paint_Clear(BLACK);
 }
 
-bool PiIO::isButtonDown() { return GET_KEY1 == 0; }
-
 void PiIO::refreshDisplay() { LCD_1in44_Display(BlackImage); }
 
 void PiIO::setDisplayColor(Color color) {
@@ -63,4 +61,31 @@ void PiIO::setPixel(std::pair<int, int> position, Color color) {
   }
 }
 
+bool PiIO::isButton1Down() {
+  return GET_KEY1 == 0;
+}
+
+bool PiIO::isButton2Down() {
+  return GET_KEY2 == 0;
+}
+
+bool PiIO::isButton3Down() {
+  return GET_KEY3 == 0;
+}
+
+bool PiIO::isJoystickUpDown() {
+  return GET_KEY_UP == 0;
+}
+
+bool PiIO::isJoystickDownDown() {
+  return GET_KEY_DOWN == 0;
+}
+
+bool PiIO::isJoystickRightDown() {
+  return GET_KEY_RIGHT == 0;
+}
+
+bool PiIO::isJoystickLeftDown() {
+  return GET_KEY_LEFT == 0;
+}
 } // namespace View
