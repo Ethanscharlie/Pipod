@@ -57,6 +57,16 @@ int main(int argc, char **argv) {
 
   View::DeviceIO *deviceIO = &io;
 
+
+  std::filesystem::path file = "../tests/res/audiotest.mp3";
+  if (!std::filesystem::exists(file)) {
+    throw std::logic_error("File does not exist");
+  }
+
+  Model::MediaManager mediaManager;
+  mediaManager.loadFile(file);
+  mediaManager.play();
+
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
 
