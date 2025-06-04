@@ -23,6 +23,7 @@ public:
   bool isButtonDown() override;
   void refreshDisplay() override;
   void setDisplayColor(Color color) override;
+  void setPixel(std::pair<int, int> position, Color color) override;
 };
 
 } // namespace View

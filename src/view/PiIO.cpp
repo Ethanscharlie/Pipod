@@ -44,4 +44,22 @@ void PiIO::setDisplayColor(Color color) {
   // I have no fucking clue why it's this way but whatever
   Paint_Clear(rgbToRgb565(color.b, color.r, color.g));
 }
+
+void PiIO::setPixel(std::pair<int, int> position, Color color) {
+  const int x = position.first;
+  const int y = position.second;
+
+  if (x > 128 || x < 0) {
+    return;
+  }
+
+  if (y > 128 || y < 0) {
+    return;
+  }
+
+  if (value) {
+    Paint_DrawPoint(x, y, rgbToRgb565(color.b, color.r, color.g), DOT_PIXEL_DFT,
+                    DOT_STYLE_DFT);
+  }
+}
 } // namespace View

@@ -30,4 +30,9 @@ void SimIO::setDisplayColor(Color color) {
   SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
   SDL_RenderClear(renderer);
 }
+
+void SimIO::setPixel(std::pair<int, int> position, Color color) {
+  SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
+  SDL_RenderDrawPoint(renderer, position.first, position.second);
+}
 } // namespace View

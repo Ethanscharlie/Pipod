@@ -5,6 +5,8 @@
 #ifndef DEVICEIO_HPP
 #define DEVICEIO_HPP
 
+#include <utility>
+
 #include "Color.hpp"
 
 namespace View {
@@ -19,6 +21,7 @@ public:
   virtual bool isButtonDown() = 0;
   virtual void refreshDisplay() = 0;
   virtual void setDisplayColor(Color color) = 0;
+  virtual void setPixel(std::pair<int, int> position, Color color) = 0;
 };
 
 } // namespace View

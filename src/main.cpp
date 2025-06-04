@@ -27,10 +27,12 @@ int main(int argc, char **argv) {
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
 
-    if (deviceIO->isButtonDown()) {
-      deviceIO->setDisplayColor({255, 0, 0});
-    } else {
-      deviceIO->setDisplayColor({0, 255, 0});
+    deviceIO->setDisplayColor({255, 255, 255});
+
+    for (int x = 10; x < 20; x++) {
+      for (int y = 10; y < 20; y++) {
+        deviceIO->setPixel({x, y}, {0, 100, 255});
+      }
     }
 
     deviceIO->refreshDisplay();
