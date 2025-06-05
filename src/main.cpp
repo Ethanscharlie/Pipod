@@ -4,46 +4,14 @@
 #include "model/MediaManager.hpp"
 #include "view/IO/DeviceIo.hpp"
 #include "view/Color.hpp"
+#include "view/Menu/IoTestingMenu.hpp"
+#include "view/Menu/Menu.hpp"
 
 #ifdef SIM
 #include "view/IO/SimIo.hpp"
 #else
 #include "view/PiIO.hpp"
 #endif // SIM
-
-View::Color getColorOfInputTest(bool isButtonDown) {
-  if (isButtonDown) {
-    return {0, 255, 0};
-  }
-
-  return {255, 0, 0};
-}
-
-void drawInputTest(View::IO::DeviceIO *deviceIO) {
-  const std::pair<int, int> size = {20, 20};
-  View::Color color = {255, 255, 255};
-
-  color = getColorOfInputTest(deviceIO->isJoystickUpDown());
-  deviceIO->drawRect({30, 30}, size, color);
-
-  color = getColorOfInputTest(deviceIO->isJoystickDownDown());
-  deviceIO->drawRect({30, 80}, size, color);
-
-  color = getColorOfInputTest(deviceIO->isJoystickRightDown());
-  deviceIO->drawRect({50, 54}, size, color);
-
-  color = getColorOfInputTest(deviceIO->isJoystickLeftDown());
-  deviceIO->drawRect({10, 54}, size, color);
-
-  color = getColorOfInputTest(deviceIO->isButton1Down());
-  deviceIO->drawRect({40, 110}, size, color);
-
-  color = getColorOfInputTest(deviceIO->isButton2Down());
-  deviceIO->drawRect({70, 110}, size, color);
-
-  color = getColorOfInputTest(deviceIO->isButton3Down());
-  deviceIO->drawRect({100, 110}, size, color);
-}
 
 void playAnAudioFileForTesting(Model::MediaManager& mediaManager) {
   std::filesystem::path file = "../tests/res/audiotest.mp3";
@@ -70,10 +38,12 @@ int main(int argc, char **argv) {
   Model::MediaManager mediaManager;
   playAnAudioFileForTesting(mediaManager);
 
+  View::Menu::IOTestingMenu ioTestingMenu(deviceIO);
+  View::Menu::Menu *currentMenu = &ioTestingMenu;
+
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
-    deviceIO->setDisplayColor({255, 255, 255});
-    drawInputTest(deviceIO);
+    currentMenu->render();
     deviceIO->refreshDisplay();
   }
 #endif

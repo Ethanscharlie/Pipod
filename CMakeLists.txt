@@ -59,6 +59,10 @@ add_executable(Pipod src/main.cpp
         src/view/Color.hpp
         src/model/MusicManager.cpp
         src/model/MusicManager.hpp
+        src/view/Menu/Menu.cpp
+        src/view/Menu/Menu.hpp
+        src/view/Menu/IoTestingMenu.cpp
+        src/view/Menu/IoTestingMenu.hpp
         ${testingFiles}
         ${codeFiles}
 )
