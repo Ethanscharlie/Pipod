@@ -4,6 +4,7 @@
 
 #ifndef MENU_HPP
 #define MENU_HPP
+#include "../../model/MediaManager.hpp"
 #include "../IO/DeviceIo.hpp"
 
 namespace View {
@@ -12,8 +13,10 @@ namespace Menu {
 class Menu {
 protected:
     IO::DeviceIO* deviceIO = nullptr;
+    Model::MediaManager* mediaManager;
+
 public:
-    Menu(IO::DeviceIO* deviceIO) : deviceIO(deviceIO) {};
+    Menu(IO::DeviceIO* deviceIO, Model::MediaManager* mediaManager);
 
     virtual void render() = 0;
 };

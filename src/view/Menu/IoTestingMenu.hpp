@@ -14,7 +14,8 @@ class IOTestingMenu : public Menu {
     void drawInputTest();
 
 public:
-    explicit IOTestingMenu(IO::DeviceIO *deviceIO) : Menu(deviceIO) {}
+    explicit IOTestingMenu(IO::DeviceIO *deviceIO, Model::MediaManager* mediaManager);
+
     void render() override;
 };
 

@@ -40,6 +40,9 @@ namespace Menu {
         color = getColorOfInputTest(deviceIO->isButton3Down());
         deviceIO->drawRect({100, 110}, size, color);
     }
+
+    IOTestingMenu::IOTestingMenu(IO::DeviceIO *deviceIO, Model::MediaManager* mediaManager): Menu(deviceIO, mediaManager) {}
+
     void IOTestingMenu::render() {
         deviceIO->setDisplayColor({255, 255, 255});
         drawInputTest();

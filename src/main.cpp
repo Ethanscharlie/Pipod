@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
   Model::MediaManager mediaManager;
   playAnAudioFileForTesting(mediaManager);
 
-  View::Menu::IOTestingMenu ioTestingMenu(deviceIO);
+  View::Menu::IOTestingMenu ioTestingMenu(deviceIO, &mediaManager);
   View::Menu::Menu *currentMenu = &ioTestingMenu;
 
   while (true) {

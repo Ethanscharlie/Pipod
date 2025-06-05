@@ -6,5 +6,6 @@
 
 namespace View {
 namespace Menu {
+    Menu::Menu(IO::DeviceIO *deviceIO, Model::MediaManager *mediaManager): deviceIO(deviceIO), mediaManager(mediaManager) {}
 } // Menu
 } // View
