@@ -70,6 +70,7 @@ target_link_libraries(Pipod PRIVATE
 
 target_include_directories(Pipod PRIVATE
         include/vlcpp
+        include/bmpp
 )
 
 # hardware specific libs and includes
