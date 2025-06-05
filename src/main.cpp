@@ -4,6 +4,7 @@
 #include "model/MediaManager.hpp"
 #include "view/IO/DeviceIo.hpp"
 #include "view/Color.hpp"
+#include "view/Menu/BmpAndMediaTestingMenu.hpp"
 #include "view/Menu/IoTestingMenu.hpp"
 #include "view/Menu/Menu.hpp"
 
@@ -39,7 +40,8 @@ int main(int argc, char **argv) {
   playAnAudioFileForTesting(mediaManager);
 
   View::Menu::IOTestingMenu ioTestingMenu(deviceIO, &mediaManager);
-  View::Menu::Menu *currentMenu = &ioTestingMenu;
+  View::Menu::BmpAndMediaTestingMenu bmpAndMediaTestingMenu(deviceIO, &mediaManager);
+  View::Menu::Menu *currentMenu = &bmpAndMediaTestingMenu;
 
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });

@@ -65,6 +65,8 @@ add_executable(Pipod src/main.cpp
         src/view/Menu/IoTestingMenu.hpp
         ${testingFiles}
         ${codeFiles}
+        src/view/Menu/BmpAndMediaTestingMenu.cpp
+        src/view/Menu/BmpAndMediaTestingMenu.hpp
 )
 
 target_link_libraries(Pipod PRIVATE

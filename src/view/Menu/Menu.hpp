@@ -13,7 +13,7 @@ namespace Menu {
 class Menu {
 protected:
     IO::DeviceIO* deviceIO = nullptr;
-    Model::MediaManager* mediaManager;
+    Model::MediaManager* mediaManager = nullptr;
 
 public:
     Menu(IO::DeviceIO* deviceIO, Model::MediaManager* mediaManager);
