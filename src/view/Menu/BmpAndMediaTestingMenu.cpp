@@ -14,8 +14,25 @@ namespace Menu {
         deviceIO->drawRect(ICON_POS, ICON_SIZE, {0, 255, 0});
     }
 
-    void BmpAndMediaTestingMenu::render() {
+    void BmpAndMediaTestingMenu::drawIconBasedOnState() {
+        if (mediaManager->isPlaying()) {
+            drawPlayingIcon();
+            return;
+        }
+
         drawPausedIcon();
+    }
+
+    void BmpAndMediaTestingMenu::render() {
+        if (deviceIO->isButton1Down()) {
+            mediaManager->play();
+        }
+
+        else if (deviceIO->isButton2Down()) {
+            mediaManager->pause();
+        }
+
+        drawIconBasedOnState();
     }
 } // Menu
 } // View

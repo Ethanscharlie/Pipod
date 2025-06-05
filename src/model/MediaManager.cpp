@@ -31,7 +31,9 @@ namespace Model {
     }
 
     void MediaManager::pause() {
-        mediaPlayer.pause();
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
     }
 
     void MediaManager::stop() {

@@ -15,6 +15,7 @@ class BmpAndMediaTestingMenu : public Menu {
 
     void drawPausedIcon();
     void drawPlayingIcon();
+    void drawIconBasedOnState();
 
 public:
     BmpAndMediaTestingMenu(IO::DeviceIO *deviceIO, Model::MediaManager *mediaManager)
