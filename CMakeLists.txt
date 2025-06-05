@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SIM ON)
-set(TESTING ON)
+set(TESTING OFF)
 
 find_package(GTest REQUIRED)
 enable_testing()
@@ -72,6 +72,11 @@ target_include_directories(Pipod PRIVATE
         include/vlcpp
         include/bmpp
 )
+if (${TESTING})
+  target_compile_definitions(Pipod PRIVATE
+          -DTESTING
+  )
+endif()
 
 # hardware specific libs and includes
 if (${SIM})
