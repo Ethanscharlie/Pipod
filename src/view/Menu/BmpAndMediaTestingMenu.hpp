@@ -14,7 +14,8 @@ class BmpAndMediaTestingMenu : public Menu {
     const std::pair<int, int> ICON_POS = {16, 16};
     const std::pair<int, int> ICON_SIZE = {16, 16};
 
-    bmp::Bitmap bitmap;
+    bmp::Bitmap playIconImage;
+    bmp::Bitmap pauseIconImage;
 
     void drawPausedIcon();
     void drawPlayingIcon();

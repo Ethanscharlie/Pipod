@@ -11,12 +11,11 @@
 namespace View {
 namespace Menu {
     void BmpAndMediaTestingMenu::drawPausedIcon() {
-        // deviceIO->drawRect(ICON_POS, ICON_SIZE, {255, 0, 0});
+        deviceIO->drawBitmap(playIconImage, ICON_POS);
     }
 
     void BmpAndMediaTestingMenu::drawPlayingIcon() {
-        // deviceIO->drawRect(ICON_POS, ICON_SIZE, {0, 255, 0});
-        deviceIO->drawBitmap(bitmap, ICON_POS);
+        deviceIO->drawBitmap(pauseIconImage, ICON_POS);
     }
 
     void BmpAndMediaTestingMenu::drawIconBasedOnState() {
@@ -31,7 +30,8 @@ namespace Menu {
     BmpAndMediaTestingMenu::BmpAndMediaTestingMenu(IO::DeviceIO *deviceIO, Model::MediaManager *mediaManager)
         : Menu(deviceIO, mediaManager) {
 
-        bitmap.load("../res/icons/PauseBotton.bmp");
+        playIconImage.load("../res/icons/PlayButton.bmp");
+        pauseIconImage.load("../res/icons/PauseBotton.bmp");
     }
 
     void BmpAndMediaTestingMenu::render() {
