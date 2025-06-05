@@ -7,7 +7,7 @@
 
 #include <utility>
 
-#include "Color.hpp"
+#include "../Color.hpp"
 
 namespace View {
 

@@ -2,11 +2,11 @@
 #include <gtest/gtest.h>
 
 #include "model/MediaManager.hpp"
-#include "view/DeviceIo.hpp"
+#include "view/IO/DeviceIo.hpp"
 #include "view/Color.hpp"
 
 #ifdef SIM
-#include "view/SimIo.hpp"
+#include "view/IO/SimIo.hpp"
 #else
 #include "view/PiIO.hpp"
 #endif // SIM

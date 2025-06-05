@@ -29,13 +29,13 @@ endif ()
 set(codeFiles)
 if (${SIM})
   set(codeFiles
-    src/view/SimIo.cpp
-    src/view/SimIo.hpp
+          src/view/IO/SimIo.cpp
+          src/view/IO/SimIo.hpp
   )
 else()
   set(codeFiles
-    src/view/PiIO.cpp
-    src/view/PiIO.hpp
+          src/view/IO/PiIO.cpp
+          src/view/IO/PiIO.hpp
     include/1n44/Config/DEV_Config.cpp
     include/1n44/Fonts/font12.cpp
     include/1n44/Fonts/font16.cpp
@@ -54,8 +54,8 @@ endif()
 add_executable(Pipod src/main.cpp
         src/model/MediaManager.cpp
         src/model/MediaManager.hpp
-        src/view/DeviceIo.cpp
-        src/view/DeviceIo.hpp
+        src/view/IO/DeviceIo.cpp
+        src/view/IO/DeviceIo.hpp
         src/view/Color.hpp
         src/model/MusicManager.cpp
         src/model/MusicManager.hpp
