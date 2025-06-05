@@ -4,7 +4,7 @@
 
 #include "PiIO.hpp"
 
-namespace View {
+namespace View::IO {
 
 unsigned short PiIO::rgbToRgb565(unsigned char r, unsigned char g,
                                  unsigned char b) {

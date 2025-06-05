@@ -9,7 +9,7 @@
 
 #include "../Color.hpp"
 
-namespace View {
+namespace View::IO {
 
 class DeviceIO {
 

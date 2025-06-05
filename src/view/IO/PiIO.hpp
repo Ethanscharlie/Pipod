@@ -10,7 +10,7 @@
 #include "GUI_Paint.h"
 #include "LCD_1in44.h"
 
-namespace View {
+namespace View::IO {
 
 class PiIO : public DeviceIO {
   UWORD *BlackImage;

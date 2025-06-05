@@ -7,7 +7,7 @@
 #include "DeviceIo.hpp"
 #include "SDL2/SDL.h"
 
-namespace View {
+namespace View::IO {
 
 class SimIO : public DeviceIO {
     SDL_Window* window;

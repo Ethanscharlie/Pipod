@@ -19,7 +19,7 @@ View::Color getColorOfInputTest(bool isButtonDown) {
   return {255, 0, 0};
 }
 
-void drawInputTest(View::DeviceIO *deviceIO) {
+void drawInputTest(View::IO::DeviceIO *deviceIO) {
   const std::pair<int, int> size = {20, 20};
   View::Color color = {255, 255, 255};
 
@@ -61,12 +61,12 @@ int main(int argc, char **argv) {
   return RUN_ALL_TESTS();
 #else
 #ifdef SIM
-  View::SimIO io = View::SimIO();
+  View::IO::SimIO io = View::IO::SimIO();
 #else
   View::PiIO io = View::PiIO();
 #endif // SIM
 
-  View::DeviceIO *deviceIO = &io;
+  View::IO::DeviceIO *deviceIO = &io;
   Model::MediaManager mediaManager;
   playAnAudioFileForTesting(mediaManager);
 

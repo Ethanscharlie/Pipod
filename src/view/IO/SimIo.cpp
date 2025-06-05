@@ -8,7 +8,7 @@
 #include <SDL2/SDL_scancode.h>
 #include <SDL2/SDL_video.h>
 
-namespace View {
+namespace View::IO {
 
 bool SimIO::isThisButtonDown(SDL_Scancode scancode) {
   SDL_PumpEvents();

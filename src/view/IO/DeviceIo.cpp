@@ -5,7 +5,7 @@
 
 #include "DeviceIo.hpp"
 
-namespace View {
+namespace View::IO {
     void DeviceIO::drawRect(std::pair<int, int> position, std::pair<int, int> size, Color color) {
         const int startingX = position.first;
         const int startingY = position.second;
