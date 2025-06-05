@@ -7,6 +7,7 @@
 
 #include <utility>
 
+#include "BitmapPlusPlus.hpp"
 #include "../Color.hpp"
 
 namespace View::IO {
@@ -19,6 +20,7 @@ public:
 
   DeviceIO() {}
   void drawRect(std::pair<int, int> position, std::pair<int, int> size, Color color);
+  void drawBitmap(const bmp::Bitmap &bitmap, std::pair<int, int> position);
 
   virtual void refreshDisplay() = 0;
   virtual void setDisplayColor(Color color) = 0;

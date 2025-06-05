@@ -4,14 +4,19 @@
 
 #include "BmpAndMediaTestingMenu.hpp"
 
+#include <iostream>
+
+#include "BitmapPlusPlus.hpp"
+
 namespace View {
 namespace Menu {
     void BmpAndMediaTestingMenu::drawPausedIcon() {
-        deviceIO->drawRect(ICON_POS, ICON_SIZE, {255, 0, 0});
+        // deviceIO->drawRect(ICON_POS, ICON_SIZE, {255, 0, 0});
     }
 
     void BmpAndMediaTestingMenu::drawPlayingIcon() {
-        deviceIO->drawRect(ICON_POS, ICON_SIZE, {0, 255, 0});
+        // deviceIO->drawRect(ICON_POS, ICON_SIZE, {0, 255, 0});
+        deviceIO->drawBitmap(bitmap, ICON_POS);
     }
 
     void BmpAndMediaTestingMenu::drawIconBasedOnState() {
@@ -21,6 +26,12 @@ namespace Menu {
         }
 
         drawPausedIcon();
+    }
+
+    BmpAndMediaTestingMenu::BmpAndMediaTestingMenu(IO::DeviceIO *deviceIO, Model::MediaManager *mediaManager)
+        : Menu(deviceIO, mediaManager) {
+
+        bitmap.load("../res/icons/PauseBotton.bmp");
     }
 
     void BmpAndMediaTestingMenu::render() {

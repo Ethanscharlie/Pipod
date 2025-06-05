@@ -11,6 +11,13 @@ struct Color {
     float r;
     float g;
     float b;
+
+    Color(float r, float g, float b) : r(r), g(g), b(b) {}
+    Color(bmp::Pixel px) {
+        r = px.r;
+        g = px.g;
+        b = px.b;
+    }
 };
 
 } // View

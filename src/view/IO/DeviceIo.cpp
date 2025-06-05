@@ -18,4 +18,16 @@ namespace View::IO {
             }
         }
     }
+
+    void DeviceIO::drawBitmap(const bmp::Bitmap &bitmap, std::pair<int, int> position) {
+        const std::pair<int, int> size = {bitmap.width(), bitmap.height()};
+        for (int bitmapX = 0; bitmapX < size.first; bitmapX++) {
+            for (int bitmapY = 0; bitmapY < size.second; bitmapY++) {
+                const Color color = bitmap.get(bitmapX, bitmapY);
+                const int x = position.first + bitmapX;
+                const int y = position.second + bitmapY;
+                setPixel({x, y}, color);
+            }
+        }
+    }
 } // View
