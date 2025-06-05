@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SIM ON)
-set(TESTING OFF)
+set(TESTING ON)
 
 find_package(GTest REQUIRED)
 enable_testing()
@@ -20,6 +20,7 @@ set(testingFiles)
 if (${TESTING})
 set(testingFiles
   tests/model/MediaManager.cpp
+        tests/model/MusicManager.cpp
 )
 endif ()
 
@@ -56,6 +57,8 @@ add_executable(Pipod src/main.cpp
         src/view/DeviceIo.cpp
         src/view/DeviceIo.hpp
         src/view/Color.hpp
+        src/model/MusicManager.cpp
+        src/model/MusicManager.hpp
         ${testingFiles}
         ${codeFiles}
 )

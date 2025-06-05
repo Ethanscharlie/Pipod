@@ -56,23 +56,23 @@ void playAnAudioFileForTesting(Model::MediaManager& mediaManager) {
 }
 
 int main(int argc, char **argv) {
-  // testing::InitGoogleTest(&argc, argv);
-  // return RUN_ALL_TESTS();
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 
-#ifdef SIM
-  View::SimIO io = View::SimIO();
-#else
-  View::PiIO io = View::PiIO();
-#endif // SIM
-
-  View::DeviceIO *deviceIO = &io;
-  Model::MediaManager mediaManager;
-  playAnAudioFileForTesting(mediaManager);
-
-  while (true) {
-    signal(SIGINT, [](int s) { std::exit(1); });
-    deviceIO->setDisplayColor({255, 255, 255});
-    drawInputTest(deviceIO);
-    deviceIO->refreshDisplay();
-  }
+// #ifdef SIM
+//   View::SimIO io = View::SimIO();
+// #else
+//   View::PiIO io = View::PiIO();
+// #endif // SIM
+//
+//   View::DeviceIO *deviceIO = &io;
+//   Model::MediaManager mediaManager;
+//   playAnAudioFileForTesting(mediaManager);
+//
+//   while (true) {
+//     signal(SIGINT, [](int s) { std::exit(1); });
+//     deviceIO->setDisplayColor({255, 255, 255});
+//     drawInputTest(deviceIO);
+//     deviceIO->refreshDisplay();
+//   }
 }
