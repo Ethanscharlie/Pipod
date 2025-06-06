@@ -18,6 +18,8 @@ class MusicManager {
 public:
     void collectFiles(std::filesystem::path folder);
     std::vector<std::filesystem::path> getCollectedFileList();
+
+    void collectFilesFromArtist(const std::filesystem::path& path, const std::string & artistName);
 };
 
 } // Model

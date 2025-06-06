@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SIM ON)
-set(TESTING OFF)
+set(TESTING ON)
 
 find_package(GTest REQUIRED)
 enable_testing()

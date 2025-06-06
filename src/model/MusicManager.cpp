@@ -24,4 +24,11 @@ namespace Model {
     std::vector<std::filesystem::path> MusicManager::getCollectedFileList() {
         return collectedFiles;
     }
+
+    void MusicManager::collectFilesFromArtist(const std::filesystem::path& path,
+        const std::string &artistName) {
+        const std::filesystem::path artistPath = path / artistName;
+        collectFiles(artistPath);
+    }
+
 } // Model
