@@ -6,6 +6,7 @@
 #define BMPANDMEDIATESTINGMENU_HPP
 #include "BitmapPlusPlus.hpp"
 #include "Menu.hpp"
+#include "../FontRenderer.hpp"
 
 namespace View {
 namespace Menu {
@@ -14,8 +15,11 @@ class BmpAndMediaTestingMenu : public Menu {
     const std::pair<int, int> ICON_POS = {16, 16};
     const std::pair<int, int> ICON_SIZE = {16, 16};
 
+    const std::pair<int, int> CURRENTLY_PLAYING_TEXT_POS = {16, 30};
+
     bmp::Bitmap playIconImage;
     bmp::Bitmap pauseIconImage;
+    FontRenderer currentlyPlayingText;
 
     void drawPausedIcon();
     void drawPlayingIcon();

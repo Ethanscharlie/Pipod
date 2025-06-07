@@ -19,6 +19,7 @@ namespace Model {
 
         currentMedia = {vlcInstance, file.string(), VLC::Media::FromPath};
         mediaPlayer = currentMedia;
+        currentMediaPath = file;
     }
 
     void MediaManager::play() {
@@ -47,5 +48,9 @@ namespace Model {
 
     bool MediaManager::isPlaying() {
         return mediaPlayer.isPlaying();
+    }
+
+    std::string MediaManager::getCurrentlyPlaying() {
+        return currentMediaPath.string();
     }
 } // Model

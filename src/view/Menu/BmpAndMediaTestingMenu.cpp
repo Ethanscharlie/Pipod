@@ -28,10 +28,13 @@ namespace Menu {
     }
 
     BmpAndMediaTestingMenu::BmpAndMediaTestingMenu(IO::DeviceIO *deviceIO, Model::MediaManager *mediaManager)
-        : Menu(deviceIO, mediaManager) {
+        : Menu(deviceIO, mediaManager), currentlyPlayingText(deviceIO) {
 
         playIconImage.load("../res/icons/PlayButton.bmp");
         pauseIconImage.load("../res/icons/PauseBotton.bmp");
+
+        currentlyPlayingText.position = CURRENTLY_PLAYING_TEXT_POS;
+        currentlyPlayingText.color = {255, 255, 255};
     }
 
     void BmpAndMediaTestingMenu::render() {
@@ -44,6 +47,9 @@ namespace Menu {
         }
 
         drawIconBasedOnState();
+
+        currentlyPlayingText.text = mediaManager->getCurrentlyPlaying();
+        currentlyPlayingText.renderText();
     }
 } // Menu
 } // View

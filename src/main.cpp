@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 
   View::Menu::IOTestingMenu ioTestingMenu(deviceIO, &mediaManager);
   View::Menu::BmpAndMediaTestingMenu bmpAndMediaTestingMenu(deviceIO, &mediaManager);
-  View::Menu::Menu *currentMenu = &ioTestingMenu;
+  View::Menu::Menu *currentMenu = &bmpAndMediaTestingMenu;
 
   while (true) {
     signal(SIGINT, [](int s) { std::exit(1); });
