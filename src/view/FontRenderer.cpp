@@ -9,6 +9,11 @@
 
 
 namespace View {
+    std::pair<int, int> FontRenderer::calculateCharacterPosition(int index) {
+        const int newXPos = position.first + (CHARPX_WIDTH + CHAR_PAD) * index;
+        const std::pair<int, int> currentPosition = {newXPos, position.second};
+        return currentPosition;
+    }
 
     void FontRenderer::render8BitColumn(int bits, int row, std::pair<int, int> characterPosition) const {
         const int x = characterPosition.first;
@@ -39,8 +44,7 @@ namespace View {
     void FontRenderer::renderText() {
         for (int i = 0; i < text.size(); i++) {
             char c = text[i];
-            const int newXPos = position.first + (CHARPX_WIDTH + CHAR_PAD) * i;
-            const std::pair<int, int> currentPosition = {newXPos, position.second};
+            const std::pair<int, int> currentPosition = calculateCharacterPosition(i);
 
             if (characterIsRenderable(c)) {
                 renderCharacterAtPosition(c, currentPosition);

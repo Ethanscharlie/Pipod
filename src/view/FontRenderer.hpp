@@ -21,6 +21,7 @@ class FontRenderer {
 
     static std::map<char, std::vector<int>> fontData;
 
+    std::pair<int, int> calculateCharacterPosition(int index);
     void render8BitColumn(int bits, int row, std::pair<int, int> characterPosition) const;
     void renderCharacterAtPosition(char c, std::pair<int, int> characterPosition);
 
