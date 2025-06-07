@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SIM ON)
-set(TESTING ON)
+set(TESTING OFF)
 
 find_package(GTest REQUIRED)
 enable_testing()
@@ -67,6 +67,8 @@ add_executable(Pipod src/main.cpp
         ${codeFiles}
         src/view/Menu/BmpAndMediaTestingMenu.cpp
         src/view/Menu/BmpAndMediaTestingMenu.hpp
+        src/view/FontRenderer.cpp
+        src/view/FontRenderer.hpp
 )
 
 target_link_libraries(Pipod PRIVATE

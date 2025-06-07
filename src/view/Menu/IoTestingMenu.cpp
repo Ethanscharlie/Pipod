@@ -4,6 +4,8 @@
 
 #include "IoTestingMenu.hpp"
 
+#include "../FontRenderer.hpp"
+
 namespace View {
 namespace Menu {
 
@@ -45,6 +47,11 @@ namespace Menu {
 
     void IOTestingMenu::render() {
         deviceIO->setDisplayColor({255, 255, 255});
+
+        FontRenderer text = {deviceIO, "Hello World", {10, 10}};
+        text.color = {100, 100, 0};
+        text.renderText();
+
         drawInputTest();
     }
 } // Menu
